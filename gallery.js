@@ -1,13 +1,10 @@
 function Gallery() {
-
   this.visuals = [];
   this.selectedVisual = null;
   var self = this;
 
-
   // Add a new visualisation to the navigation bar.
   this.addVisual = function (vis) {
-
     // Check that the vis object has an id and name.
     if (!vis.hasOwnProperty('id')
       && !vis.hasOwnProperty('name')) {
@@ -20,7 +17,6 @@ function Gallery() {
     }
 
     this.visuals.push(vis);
-
 
     // Create menu item.
     var menuItem = createElement('li', vis.name);
@@ -51,22 +47,19 @@ function Gallery() {
       el.addClass('selected');
 
       self.selectVisual(e.srcElement.id);
-
     })
-
 
     var visMenu = select('#visuals-menu');
     visMenu.child(menuItem);
 
-    // Preload data if necessary.
+    // Preload data
     if (vis.hasOwnProperty('preload')) {
       vis.preload();
     }
   };
 
   this.findVisIndex = function (visId) {
-    // Search through the visualisations looking for one with the id
-    // matching visId.
+    // Search through the visualisations looking for one with the id matching visId.
     for (var i = 0; i < this.visuals.length; i++) {
       if (this.visuals[i].id == visId) {
         return i;
@@ -89,13 +82,12 @@ function Gallery() {
       // Select the visualisation in the gallery.
       this.selectedVisual = this.visuals[visIndex];
 
-      // Initialise visualisation if necessary.
+      // Initialise visualisation 
       if (this.selectedVisual.hasOwnProperty('setup')) {
         this.selectedVisual.setup();
       }
 
-      // Enable animation in case it has been paused by the current
-      // visualisation.
+      // Enable animation in case it has been paused by the current visualisation.
       loop();
     }
   };
