@@ -80,12 +80,10 @@ function GWawareness() {
 
   };
 
-
   this.destroy = function () {
     this.select.remove();
     d3.select('#GW-awareness').html(''); // Clean up
   };
-
 
   this.draw = function () {
   };
