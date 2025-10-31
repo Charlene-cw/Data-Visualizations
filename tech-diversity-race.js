@@ -124,7 +124,8 @@ function TechDiversityRace() {
       .attr('d', arc)
       .attr('aria-label', d => `${d.data.label}: ${d.data.value}%`)
       .attr('tabindex', 0)
-
+      
+      //HOVER
       .on('mouseover', (event, d) => {
         d3.select(event.currentTarget)
           .raise()
@@ -150,7 +151,8 @@ function TechDiversityRace() {
         self.tooltip.style('opacity', 0);
       })
 
-      .merge(arcs)  // << Merge enter and update here
+      //Merge ENTER and UPDATE here
+      .merge(arcs)  
       .transition()
       .duration(500)
       .attr('d', arc)
