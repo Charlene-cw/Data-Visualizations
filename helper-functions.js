@@ -1,6 +1,4 @@
-// --------------------------------------------------------------------
 // Data processing helper functions.
-// --------------------------------------------------------------------
 function sum(data) {
   var total = 0;
 
@@ -10,19 +8,16 @@ function sum(data) {
   for (let i = 0; i < data.length; i++) {
     total = total + data[i];
   }
-
   return total;
 }
 
 function mean(data) {
   var total = sum(data);
-
   return total / data.length;
 }
 
 function sliceRowNumbers (row, start=0, end) {
   var rowData = [];
-
   if (!end) {
     // Parse all values until the end of the row.
     end = row.arr.length;
@@ -31,7 +26,6 @@ function sliceRowNumbers (row, start=0, end) {
   for (i = start; i < end; i++) {
     rowData.push(row.getNum(i));
   }
-
   return rowData;
 }
 
@@ -39,13 +33,9 @@ function stringsToNumbers (array) {
   return array.map(Number);
 }
 
-// --------------------------------------------------------------------
 // Plotting helper functions
-// --------------------------------------------------------------------
-
 function drawAxis(layout, colour=0) {
   stroke(color(colour));
-
   // x-axis
   line(layout.leftMargin,
        layout.bottomMargin,
@@ -63,7 +53,6 @@ function drawAxisLabels(xLabel, yLabel, layout) {
   fill(0);
   noStroke();
   textAlign('center', 'center');
-
   // Draw x-axis label.
   text(xLabel,
        (layout.plotWidth() / 2) + layout.leftMargin,
@@ -78,9 +67,7 @@ function drawAxisLabels(xLabel, yLabel, layout) {
   pop();
 }
 
-function drawYAxisTickLabels(min, max, layout, mapFunction,
-                             decimalPlaces) {
-  // Map function must be passed with .bind(this).
+function drawYAxisTickLabels(min, max, layout, mapFunction, decimalPlaces) {
   var range = max - min;
   var yTickStep = range / layout.numYTickLabels;
 
@@ -107,9 +94,7 @@ function drawYAxisTickLabels(min, max, layout, mapFunction,
 }
 
 function drawXAxisTickLabel(value, layout, mapFunction) {
-  // Map function must be passed with .bind(this).
   var x = mapFunction(value);
-
   fill(0);
   noStroke();
   textAlign('center', 'center');
