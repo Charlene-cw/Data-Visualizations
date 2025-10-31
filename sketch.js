@@ -1,6 +1,4 @@
-
-// Global variable to store the gallery object. The gallery object is
-// a container for all the visualisations.
+// Global variable to store the gallery object. The gallery object is a container for all the visualisations.
 var gallery;
 
 function setup() {
