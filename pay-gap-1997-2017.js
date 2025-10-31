@@ -3,8 +3,7 @@ function PayGapTimeSeries() {
   // Name for the visualisation to appear in the menu bar.
   this.name = 'Pay gap: 1997-2017';
 
-  // Each visualisation must have a unique ID with no special
-  // characters.
+  // Each visualisation must have a unique ID with no special characters.
   this.id = 'pay-gap-timeseries';
 
   // Title to display above the plot.
@@ -16,13 +15,11 @@ function PayGapTimeSeries() {
 
   var marginSize = 35;
 
-  // Layout object to store all common plot layout parameters and
-  // methods.
+  // Layout object to store all common plot layout parameters and methods.
   this.layout = {
     marginSize: marginSize,
 
-    // Locations of margin positions. Left and bottom have double margin
-    // size due to axis and tick labels.
+    // Locations of margin positions. Left and bottom have double margin size due to axis and tick labels.
     leftMargin: marginSize * 2,
     rightMargin: width - marginSize,
     topMargin: marginSize,
@@ -40,23 +37,20 @@ function PayGapTimeSeries() {
     // Boolean to enable/disable background grid.
     grid: true,
 
-    // Number of axis tick labels to draw so that they are not drawn on
-    // top of one another.
+    // Number of axis tick labels to draw so that they are not drawn on top of one another.
     numXTickLabels: 10,
     numYTickLabels: 8,
   };
 
-  // Property to represent whether data has been loaded.
+  // Represent whether data has been loaded.
   this.loaded = false;
 
-  // Preload the data. This function is called automatically by the
-  // gallery when a visualisation is added.
+  // Preload the data. This function is called automatically by the gallery when a visualisation is added.
   this.preload = function() {
     var self = this;
     this.data = loadTable(
       './data/pay-gap/all-employees-hourly-pay-by-gender-1997-2017.csv', 'csv', 'header',
-      // Callback function to set the value
-      // this.loaded to true
+      // Callback function to set the value this.loaded to true
       function(table) {
         self.loaded = true;
       });
@@ -103,13 +97,11 @@ function PayGapTimeSeries() {
                    this.yAxisLabel,
                    this.layout);
 
-    // Plot all pay gaps between startYear and endYear using the width
-    // of the canvas minus margins.
+    // Plot all pay gaps between startYear and endYear using the width of the canvas minus margins.
     var previous;
     var numYears = this.endYear - this.startYear;
 
-    // Loop over all rows and draw a line from the previous value to
-    // the current.
+    // Loop over all rows and draw a line from the previous value to the current.
     for (var i = 0; i < this.data.getRowCount(); i++) {
 
       // Create an object to store data for the current year.
@@ -136,8 +128,7 @@ function PayGapTimeSeries() {
           this.mapYearToWidth(current.year),
           this.mapPayGapToHeight(current.payGap));
 
-        // The number of x-axis labels to skip so that only
-        // numXTickLabels are drawn.
+        // The number of x-axis labels to skip so that only numXTickLabels are drawn.
         var xLabelSkip = ceil(numYears / this.layout.numXTickLabels);
 
         // Draw the tick label marking the start of the previous year.
@@ -147,9 +138,7 @@ function PayGapTimeSeries() {
         }
       }
 
-      // Assign current year to previous year so that it is available
-      // during the next iteration of this loop to give us the start
-      // position of the next line segment.
+      // Assign current year to previous year so that it is available during the next iteration of this loop to give us the start position of the next line segment.
       previous = current;
     }
   };
