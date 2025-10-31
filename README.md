@@ -1,4 +1,3 @@
 # Data-Visualizations
-Dynamic data visualization project using JavaScript and SVG to render multiple chart types.
-
-The combined project logs is available here [📄 View Project Logs](./Progress-Logs-(All).pdf). 
+Built with JavaScript and SVG, this project showcases multiple chart types including pie charts, line graphs, bar charts, and a heat map. Data was sourced through online research and visualized using custom scripts and scalable vector graphics. 
+Individual progress logs are included in a dedicated [folder](./Progress-Logs), and a combined PDF summarizing the development journey is avaiable here [📄 View Project Logs](./Progress-Logs-(All).pdf). 
